@@ -1,0 +1,15 @@
+def square_sample(f,sf,n):
+    period_time=1/f
+    period_samples=period_time*sf
+    psh=periodsamples/2
+    for k in range n:
+        if k%period_samples<psh:
+            y=1
+        else:
+            y=-1
+        s.append(y)
+    return s
+
+
+            
+
