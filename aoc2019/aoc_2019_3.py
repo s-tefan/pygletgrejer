@@ -1,10 +1,16 @@
+# Advent of Code 2019
+# Day 3, Part 1
+
 import sys
 
 
 def fixinput(line):
+    # decodes a line of move operators to a list
+    # of tuples (direction,steps) where direction
+    # is a character and steps an integer
     moves=[]
-    strippedline = line.strip().split(',')
-    for movestr in strippedline:
+    movestringlist = line.strip().split(',')
+    for movestr in movestrlist:
         direction = movestr[0]
         steps =  int(movestr[1:])
         moves.append((direction,steps))
@@ -45,6 +51,7 @@ def moveposstep(pos,dir):
 
 def getwirepoints(wire):
     # as list of tuples
+    # not used
     pos=[0,0]
     wirepoints=[tuple(pos)]
     for move in wire:
@@ -62,7 +69,6 @@ def getwirepointset(wire):
             moveposstep(pos,move[0])
             wirepointset.add(tuple(pos))
     return wirepointset
-
 
 
 def findcrossingset(wires):

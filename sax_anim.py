@@ -24,4 +24,5 @@ anim = FuncAnimation(fig, animate, init_func=init,
                                frames=200, interval=10, blit=True)
 
 anim.save('sax_wave.gif', writer='imagemagick')
+display_animation(anim)
 plt.show()
