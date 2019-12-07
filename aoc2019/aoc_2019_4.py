@@ -25,3 +25,4 @@ def check(word):
         elif word(k+1)==word(k):
             double=True
     return double
+    
