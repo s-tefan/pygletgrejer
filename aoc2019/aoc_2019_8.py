@@ -32,4 +32,3 @@ def del1(f, debug=False):
 
 with open("input8.txt","r") as f:
     print(del1(f))
-
