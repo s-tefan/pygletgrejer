@@ -10,7 +10,7 @@ def fixinput(line):
     # is a character and steps an integer
     moves=[]
     movestringlist = line.strip().split(',')
-    for movestr in movestrlist:
+    for movestr in movestringlist:
         direction = movestr[0]
         steps =  int(movestr[1:])
         moves.append((direction,steps))
@@ -70,11 +70,36 @@ def getwirepointset(wire):
             wirepointset.add(tuple(pos))
     return wirepointset
 
+def getwirepointlengthdict(wire):
+    # as set of tuples
+    pos=[0,0]
+    wirepointdict={}
+    steps=0
+    for move in wire:
+        for k in range(move[1]):
+            steps+=1
+            moveposstep(pos,move[0])
+            wirepointdict[tuple(pos)]=steps
+    return wirepointdict
+
 
 def findcrossingset(wires):
     wirepointset0=getwirepointset(wires[0])
     wirepointset1=getwirepointset(wires[1])
     return wirepointset0 & wirepointset1
+
+def findcrossingdict_minsteps(wires):
+    wirepointdict0 = getwirepointlengthdict(wires[0])
+    wirepointdict1 = getwirepointlengthdict(wires[1])
+    intersect = set(wirepointdict0) & set(wirepointdict1)
+    stepslist=[]
+    for crossing in intersect:
+        steps = wirepointdict0[crossing]+wirepointdict1[crossing]
+        stepslist.append(steps)
+    return min(stepslist)
+
+
+
 
 def manhattan(pos):
     return abs(pos[0])+abs(pos[1])
@@ -85,6 +110,9 @@ xings=findcrossingset(wires)
 xingsdist=set(map(manhattan,xings))
 #print(xingsdist)
 print(min(xingsdist))
+
+print(findcrossingdict_minsteps(wires))
+
 
         
 

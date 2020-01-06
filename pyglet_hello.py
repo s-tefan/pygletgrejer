@@ -94,4 +94,12 @@ vlist1 = pyglet.graphics.vertex_list(4,
 scurve = sinus_curve(10,300,300,100)
 
 
+adsr = pyglet.media.synthesis.ADSREnvelope(0.05, 0.2, 0.1)
+saw = pyglet.media.synthesis.Sawtooth(duration=1.0, frequency=220, envelope=adsr)
+fm = pyglet.media.synthesis.FM(3, carrier=440, modulator=5, mod_index=1, envelope=adsr)
+
+#saw.play()
+fm.play()
+
+
 pyglet.app.run()
