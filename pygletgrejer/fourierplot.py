@@ -6,8 +6,8 @@ import numpy.fft
 import random
 
 '''
-Borde byggas om objektorienterat med en klass Fourierplotter eller liknande
-De globala variablerna är då attribut till ett objekt
+Borde byggas om objektorienterat med en klass Fourierplotter eller liknande.
+De globala variablerna är då attribut till ett objekt.
 '''
 
 
