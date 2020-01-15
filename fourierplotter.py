@@ -56,7 +56,7 @@ class FourierPlotter:
 
 class FourierAnimator:
     # Animates the Fourier Series i a FourierPlotter object
-    # as a train of "hands" in the complex plane
+    # as a train of phasors in the complex plane
 
     def __init__(self, width = 1280, height = 720):
         self.fplotters = []
