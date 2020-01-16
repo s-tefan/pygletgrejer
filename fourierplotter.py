@@ -10,6 +10,8 @@ class FourierPlotter:
         self.flist = flist
         self.mode = None
         self.freq = 1/20
+        self.trace = []
+        self.tracelen = 100
     
     def termlist(self, t):
         n = len(self.flist)
@@ -26,6 +28,11 @@ class FourierPlotter:
     
     def start(self):
         self.starttime = time.time()
+
+    def add_to_trace(self,z):
+        if len(self.trace) >= self.tracelen:
+            self.trace.pop(1)
+        self.trace.append(z)
     
     def hands_vertexlist(self, t, mode=0):
         tlist = self.termlist(t)
@@ -52,6 +59,7 @@ class FourierPlotter:
             if n%2:
                 z += tlist[n//2]
                 zlist.append(z)
+        add_to_trace(zlist(-1))
         return zlist
 
 class FourierAnimator:
@@ -143,7 +151,3 @@ fa.add_fplotter(fp)
 fa.add_fplotter(fp2)
 print(fa.starttime,fa.fplotters,fa.batch)
 fa.run()
-
-
-
-
