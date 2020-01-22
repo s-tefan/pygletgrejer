@@ -23,7 +23,7 @@ class FourierPlotter:
         n = len(flistraw)
         self.flist = [f/n for f in flistraw]
 
-    def set_mode(mode):
+    def set_mode(self, mode):
         self.mode = mode
     
     def start(self):
@@ -191,10 +191,10 @@ class FourierGraph:
         dt = 1/self.no_points
         curvelist = []
         for fplotter in self.fplotters:
-            termlist = self.termlist(t)
+            termlist = fplotter.termlist(t)
             t = 0
             ylist = []
-            for k in range(no_plots):
+            for k in range(self.no_points):
                 tlist = fplotter.termlist(t)
                 z = sum(tlist)
                 y = z.real
