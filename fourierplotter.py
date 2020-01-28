@@ -23,7 +23,7 @@ class FourierPlotter:
         n = len(flistraw)
         self.flist = [f/n for f in flistraw]
 
-    def set_mode(mode):
+    def set_mode(self, mode):
         self.mode = mode
     
     def start(self):
@@ -141,10 +141,10 @@ class FourierAnimator:
             for z in fplotter.trace:
                 tlist += [z.real*self.scale+self.xoffset,
                     z.imag*self.scale+self.yoffset]
-            self.tracedict[fplotter] = self.batch.add(n, 
+            self.tracedict[fplotter] = self.batch.add(tlen, 
                 pyglet.gl.GL_LINE_STRIP, None,
-                ('v2f', vlist),
-                ('c3B', (0,255,0)*n) )
+                ('v2f', tlist),
+                ('c3B', (255,0,0)*tlen) )
 
 
     def update(self, dt):
@@ -159,8 +159,9 @@ class FourierAnimator:
                     z.imag*self.scale+self.yoffset)
             tlist = []
             tlen = len(fplotter.trace)
-
-
+            if tlen < fplotter.tracelen:
+                fplotter.trace.append(sum(zlist))
+            # Fixa till med tracedict
 
 
         
@@ -181,7 +182,7 @@ class FourierGraph:
     # To be implemented
     pass
     def __init__(self):
-        no_points = 200
+        self.no_points = 200
         self.fplotters = []
     
     def add_fplotter(self, fplotter):
@@ -191,10 +192,10 @@ class FourierGraph:
         dt = 1/self.no_points
         curvelist = []
         for fplotter in self.fplotters:
-            termlist = self.termlist(t)
+            termlist = fplotter.termlist(t)
             t = 0
             ylist = []
-            for k in range(no_plots):
+            for k in range(self.no_points):
                 tlist = fplotter.termlist(t)
                 z = sum(tlist)
                 y = z.real
