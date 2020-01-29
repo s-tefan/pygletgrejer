@@ -15,15 +15,16 @@ class PlotWindow(pyglet.window.Window):
         #glClear(GL_COLOR_BUFFER_BIT)
         # vi kör den här istället
         #win.clear()
-        if not self.drawn:
+        #if not self.drawn:
+        if True:
             self.batch.draw()
             print("Ritar!")
             self.drawn = True
-        pyglet.graphics.vertex_list(2,('v3f',(-1,-1,-1,1,1,1))).draw(pyglet.gl.GL_LINES)
-        # funkar ju inte efter subklassningen
+        pyglet.graphics.vertex_list(2,('v3f',(-1,-1,-1,1,1,1)),('c3b',(1,0,0,0,0,1))).draw(pyglet.gl.GL_LINES)
+        # funkar inte efter subklassningen
 
 
-    def on_resize(self, width, height, resizable = True):
+    def on_resize(self, width, height):
         print("Resize")
         self.drawn = False
 
@@ -44,9 +45,10 @@ class PlotWindow(pyglet.window.Window):
         # center is at origin (lower left) so need to translate
         gluLookAt(0.5,1,2, 0,0,0, 0,1,0) # eye, center, up 
         #glRotatef(85,1,0,0)
-
-
         self.batch.draw()
+
+    def on_activate(self):
+        print("Activated!")
 
 
 
@@ -92,5 +94,8 @@ print(mesh(lambda x,y : 1))
 
 win = PlotWindow()
 win.batch = meshbatch()
+
+@win.event
+
 
 pyglet.app.run()
