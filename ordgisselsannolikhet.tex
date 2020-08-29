@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\begin{document}
+\paragraph{Premisser.}
+Antal ord att gissa på är $N$.
+Strategin är att ta mittersta ordet i möjliga listan.
+Med 
+$n = \log(N+1)/\log(2)$.
+är
+$N=2^n-1$.
+Vi förutsätter i beräkningarna att $n$ är ett heltal, så att strategin kan följas entydigt i rekursion, då $2^n-1=2(2^{n-1}-1)+1$.
+
+\paragraph{Slutsatser.}
+I rekursionen minskas $n$ med ett i varje steg.
+Med premisserna ovan behövs det i sämsta fall $n$ gissningar, eftersom $2^{1}-1=1$.
+Sannolikheten för att behöva exakt $n$ gissningar är approximativt en på två. Mer specifikt, för sannolikheten $p_k$ att gissa rätt på försök $k$ har vi
+\begin{align*}
+p_1 &= \frac{1}{N} = \frac{1}{2^n-1} \\
+p_2 &= (1-p_1)\, \frac{1}{(2^n-2)/2} = \frac{2^n-2}{2^n-1}\frac{2}{2^n-2} = 2\,p_1 \\
+&\vdots \\
+p_k &= 2\,p_{k-1} = 2^{k-1}p_1 \\
+&\vdots \\
+p_n &= 2^{n-1}p_1 = \frac{1}{2-2^(-n+1)} \approx \frac{1}{2}.
+\end{align*}
+Väntevärdet på antalet gissningar är
+\[
+\sum_{k=1}^n n\,p_n 
+=
+p_1\sum_{k=1}^n k 2^{k-1} = p_1\left((n-1)2^n+1\right)
+= 
+\frac{(n-1)2^n+1}{2^n-1}
+=
+\frac{(n-1)2^{-n}}{1-2^{-n}}\approx n-1.
+\]
+
+
+
+
+\paragraph{Appendix.}
+\[\begin{split}
+S_n&=\sum_{k=1}^{n}k 2^{k-1}\\
+\implies
+2S_n &= \sum_{k=1}^{n}k 2^{k}
+= \sum_{k=0}^{n}k 2^{k}
+= \sum_{i=1}^{n+1} (i-1) 2^{i-1}
+= \sum_{i=1}^{n+1} i 2^{i-1} 
+- \sum_{i=1}^{n+1} 2^{i-1}
+\\&= S_n + (n+1)2^{n} - 2^{n+1}
+= S_n + (n-1)2^{n-1}
+\end{split}\]
+\[\therefore \sum_{k=1}^{n}k 2^{k-1} = (n-1)2^{n-1}.\]
+
+
+\end{document}

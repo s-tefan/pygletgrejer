@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<!-- Funkar! (med en mqtt-server som kör websocket) -->
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"
+        type="text/javascript"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        var host = 'broker.hivemq.com'
+        var port = 8000
+        host = 'localhost'
+        port = 9001
+
+        var clientId = 'mupp'
+        client = new Paho.MQTT.Client(host, port, clientId);
+        // set callback handlers
+        client.onConnectionLost = onConnectionLost;
+        client.onMessageArrived = onMessageArrived;
+
+        // connect the client
+        client.connect({ onSuccess: onConnect });
+
+
+        // called when the client connects
+        function onConnect() {
+            // Once a connection has been made, make a subscription and send a message.
+            console.log("onConnect");
+            client.subscribe("World");
+            message = new Paho.MQTT.Message("Hello");
+            message.destinationName = "World";
+            client.send(message);
+        }
+
+        // called when the client loses its connection
+        function onConnectionLost(responseObject) {
+            if (responseObject.errorCode !== 0) {
+                console.log("onConnectionLost:" + responseObject.errorMessage);
+            }
+        }
+
+        // called when a message arrives
+        function onMessageArrived(message) {
+            console.log("onMessageArrived:" + message.payloadString);
+        }
+    </script>
+
+</body>
+
+</html>
