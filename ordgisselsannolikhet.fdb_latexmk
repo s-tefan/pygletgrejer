@@ -1,8 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1598702773 "/home/stefan/Prog/ordgisselsannolikhet.tex" "/home/stefan/Prog/ordgisselsannolikhet.pdf" "ordgisselsannolikhet" 1598702773
+["pdflatex"] 1598702773 "/home/stefan/Prog/ordgisselsannolikhet.tex" "/home/stefan/Prog/ordgisselsannolikhet.pdf" "ordgisselsannolikhet" 1598729596
   "/etc/texmf/web2c/texmf.cnf" 1597075407 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/stefan/Prog/ordgisselsannolikhet.aux" 1598702773 257 dfa37b32fc1e3270baed367c4ffbf235 ""
-  "/home/stefan/Prog/ordgisselsannolikhet.tex" 1598702772 1549 aff9551d717e7c8cdd2e3c3cc2593a8f ""
+  "/home/stefan/Prog/ordgisselsannolikhet.tex" 1598729595 1549 aff9551d717e7c8cdd2e3c3cc2593a8f ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -39,10 +39,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1597075759 128028 f533b797fba58d231669ea19e894e23e ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1597075766 4925414 451b412a8e0ecb431ce97d492db71be1 ""
   "ordgisselsannolikhet.aux" 1598702773 257 dfa37b32fc1e3270baed367c4ffbf235 "pdflatex"
-  "ordgisselsannolikhet.tex" 1598702772 1549 aff9551d717e7c8cdd2e3c3cc2593a8f ""
+  "ordgisselsannolikhet.tex" 1598729595 1549 aff9551d717e7c8cdd2e3c3cc2593a8f ""
   (generated)
-  "ordgisselsannolikhet.log"
-  "/home/stefan/Prog/ordgisselsannolikhet.log"
   "/home/stefan/Prog/ordgisselsannolikhet.pdf"
   "ordgisselsannolikhet.aux"
+  "ordgisselsannolikhet.log"
+  "/home/stefan/Prog/ordgisselsannolikhet.log"
   "ordgisselsannolikhet.pdf"
