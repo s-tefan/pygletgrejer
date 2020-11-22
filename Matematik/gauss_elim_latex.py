@@ -4,6 +4,17 @@
 
 import fractions
 
+class Fracamente(fractions.Fraction):
+    def latex_frac(self):
+        a,b = self.as_integer_ratio()
+        if b == 1:
+            return "a"
+        else:
+            return "\\frac{{{}}}{{{}}}".format(a,b)
+    
+    def toString(self):
+        return self.latex_frac()
+
 class GaussMatrix:
     elem_sep_str = " & "
     row_sep_str = " \\\\\n"
@@ -77,7 +88,8 @@ class GaussMatrix:
         return s
 
 
-fr = fractions.Fraction
+#fr = fractions.Fraction
+fr = Fracamente
 preapa = [[1,2,3],[0.1,-5,37]]
 apa = GaussMatrix([[fr(x).limit_denominator(1024) for x in row] for row in preapa])
 print(apa.array)
