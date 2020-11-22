@@ -88,4 +88,3 @@ print(apa.mult_row(1,fr("1/52")))
 print(apa.add_row(50,1,0))
 print(apa.matrix_to_latex())
 
-
