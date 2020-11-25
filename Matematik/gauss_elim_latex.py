@@ -6,14 +6,16 @@ import fractions
 
 class Fracamente(fractions.Fraction):
     def latex_frac(self):
-        a,b = self.as_integer_ratio()
-        if b == 1:
-            return "a"
+        if self.denominator == 1:
+            return str(self.numerator)
         else:
-            return "\\frac{{{}}}{{{}}}".format(a,b)
+            return "\\frac{{{}}}{{{}}}".format(self.numerator,self.denominator)
     
-    def toString(self):
+    def __str__(self):
+        print("Kuk!")
         return self.latex_frac()
+
+
 
 class GaussMatrix:
     elem_sep_str = " & "
@@ -99,5 +101,5 @@ print(apa.mult_row(0,10))
 print(apa.mult_row(1,fr("1/52")))
 print(apa.add_row(50,1,0))
 print(apa.matrix_to_latex())
-
-
+print(fr("4/5")*3)
+print(fr("4")+fr("1/2"))
