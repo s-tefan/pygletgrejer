@@ -103,3 +103,6 @@ print(apa.add_row(50,1,0))
 print(apa.matrix_to_latex())
 print(fr("4/5")*3)
 print(fr("4")+fr("1/2"))
+
+
+
