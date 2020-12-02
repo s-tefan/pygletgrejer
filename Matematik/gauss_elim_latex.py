@@ -12,7 +12,6 @@ class Fracamente(fractions.Fraction):
             return "\\frac{{{}}}{{{}}}".format(self.numerator,self.denominator)
     
     def __str__(self):
-        print("Kuk!")
         return self.latex_frac()
 
 
