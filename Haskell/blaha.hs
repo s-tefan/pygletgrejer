@@ -35,6 +35,10 @@ area (Triangle x1 y1 x2 y2 x3 y3) = abs $ ( (x3-x1)*(y2-y1) - (x2-x1)*(y3-y1) )/
 
 
 
+if' :: Bool -> a -> a -> a
+if' True x _ = x
+if' False _ y = y
+
 
 
 apa :: String -> String
@@ -45,10 +49,16 @@ apa _ = "bla"
 
 
 -- Hur gör man sånt här?
-data Kort = Hjärter | Spader | Ruter | Klöver
+data Kort = Hjärter | Spader | Ruter | Klöver  deriving(Show)
 
-(+++) :: Kort -> Kort -> Kort
-(+++) Hjärter Spader = Ruter
+(+) :: Kort -> Kort -> Kort
+(+) Hjärter Spader = Klöver
+(+) Hjärter Ruter = Spader
+(+) Hjärter Klöver = Ruter
+(+) Spader Ruter = Hjärter
+(+) Spader Klöver = Ruter
+(+) Ruter Klöver = Hjärter
+(+) x y = y Main.+ x
 
 
 
