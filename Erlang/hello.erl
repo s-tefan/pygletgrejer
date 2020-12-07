@@ -5,7 +5,9 @@
     int_from_vn/1, 
     vn_from_int/1, 
     is_vn/1, 
-    plus/2]).
+    plus/2,
+    blupp/1
+]).
 
 fact(0) -> 1;
 fact(N) when is_integer(N), N > 0 ->
@@ -34,8 +36,9 @@ plus(A, [B|B]) -> plus(succ(A), B).
 list_print([A|[B|C]]) ->
     io:format("~w, ", [A]),
     list_print([B|C]);
-list_print([A|[])
-    io:format("~w~n", [A]),
+list_print([A|[]]) ->
+    io:format("~w~n", [A]);
 list_print([]) ->
     io:format("~n", []).
 
+blupp(X) -> math:log(2)/math:log(1+X)*X.
